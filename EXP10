@@ -1,0 +1,28 @@
+clc;  
+load iris_dataset.mat                          
+irisInputs=irisInputs'; 
+irisInputs;  
+numel(irisInputs)  
+plotmatrix(irisInputs);  
+title('Iris-Data-Setosa, versicolor, virginica')
+corrcoef(irisInputs)  
+setosa=irisInputs(1:50, 1:4)  
+versicolor=irisInputs(51:100, 1:4)  
+verginica=irisInputs(101:150, 1:4) 
+corrcoef(verginica)  
+corrcoef(setosa) 
+corrcoef(versicolor)  
+plotmatrix(setosa)  
+title('Iris-Data- Sentosa')
+setosaSL=setosa(:, 1);  
+subplot(1,2,1); 
+histogram(setosaSL);  
+subplot(1,2,2); 
+histfit(setosaSL)  
+% when H1=H0  
+[hyp, pv, ci]=ztest(setosaSL, 5, 0.3)  
+%when h1>h0  
+[hyp, pv, ci]=ztest(setosaSL, 5, 0.3, 'Tail','right')  
+%when h1<h0  
+[hyp, pv, ci]=ztest(setosaSL, 5, 0.3, 'Tail','left') 
+qqplot(setosa(:,1))  
