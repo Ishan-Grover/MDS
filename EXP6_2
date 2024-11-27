@@ -1,0 +1,10 @@
+clc; l=2;  
+sample=[10 30 50 60]; 
+means= zeros(1, length(sample));  
+for i= 1: length(sample)    
+sample_size= sample(i);     
+random_num=poissrnd(l, 1, sample_size);     
+mean_val= mean(random_num);     
+means(i)= mean_val;  
+end 
+means  
