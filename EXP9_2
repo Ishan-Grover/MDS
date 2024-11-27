@@ -1,0 +1,16 @@
+clc;  
+a= rand(1,5000);  
+b= rand(1,5000);  
+fav= find(abs(a-b)<0.25); 
+figure  
+hold on; 
+scatter(a,b);  
+scatter(a(fav),b(fav), '*'); 
+prob1=numel(fav)/5000;  
+alpha=0.05;  
+zalphaby2=norminv(0.025);  
+L=prob1 + zalphaby2*sqrt(prob1.*(1-prob1)/5000);  
+U=prob1 - zalphaby2*sqrt(prob1.*(1-prob1)/5000);  
+display(L); 
+display(U); 
+display(prob1); 
